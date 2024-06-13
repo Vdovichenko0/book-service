@@ -2,9 +2,11 @@ package telran.java52.book.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Set;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -23,4 +25,13 @@ public class Author implements Serializable{
 	@Id
 	String name;
 	LocalDate birthDate;
+	@ManyToMany(mappedBy = "authors") //много книг много авторов 
+	Set<Book> books;// не надо инициализировать это делает hivernate+конструтор для других и impl не ругается
+	
+	public Author(String name, LocalDate birthDate) {
+		this.name = name;
+		this.birthDate = birthDate;
+	}
+	
+	
 }
