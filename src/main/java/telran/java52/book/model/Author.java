@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Set;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
@@ -25,7 +26,7 @@ public class Author implements Serializable{
 	@Id
 	String name;
 	LocalDate birthDate;
-	@ManyToMany(mappedBy = "authors") //много книг много авторов 
+	@ManyToMany(mappedBy = "authors", cascade = CascadeType.REMOVE) //много книг много авторов + каскадное удаление + найти все дочернее и удали тожн
 	Set<Book> books;// не надо инициализировать это делает hivernate+конструтор для других и impl не ругается
 	
 	public Author(String name, LocalDate birthDate) {
