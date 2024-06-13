@@ -38,7 +38,7 @@ public class BookServiceImpl implements BookService {
 				.orElse(publisherRepository.save(new Publisher(bookDto.getPublisher())));
 
 		// authors from DB
-		// преобразовать авторов если есть нет найдем/ есил нет сохраняем
+		// преобразовать авторов если есть нет найдем/ если нет сохраняем
 		Set<Author> authors = bookDto.getAuthors().stream()
 				.map(a -> authorRepository.findById(a.getName())
 						.orElse(authorRepository.save(new Author(a.getName(), a.getBirthDate()))))
