@@ -5,7 +5,6 @@ import java.util.Optional;
 import telran.java52.book.model.Author;
 
 public interface AuthorRepository {
-//	Author findByNameIgnoreCase(String name);
 
 	Optional<Author> findById(String name);
 
