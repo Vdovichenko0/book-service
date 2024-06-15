@@ -100,7 +100,7 @@ public class BookServiceImpl implements BookService {
 	@Override	//кто выставлял этого автора
 	public Iterable<String> findPublishersByAuthor(String authorName) {
 		return publisherRepository.findPublishersByAuthor(authorName);
-	}
+	} 
 
 	@Transactional
 	@Override
