@@ -45,15 +45,18 @@ public class BookRepositoryImpl implements BookRepository {
 	}
 
 	@Override
-	public Optional<Book> findById(String isbn) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+	public Optional<Book> findById(String isbn) { 
+//		return Optional.empty();
+//// Возвращает Optional, который содержит найденный объект или пустой Optional, если объект не найден
+		return Optional.ofNullable(em.find(Book.class, isbn));
 	}
 
 	@Override
 	public void deleteById(String isbn) {
-		// TODO Auto-generated method stub
-
+		Book book = em.find(Book.class, isbn);
+		if(book != null) {
+			em.remove(book);
+		}
 	}
 
 }
