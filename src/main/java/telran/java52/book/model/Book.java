@@ -40,7 +40,8 @@ public class Book implements Serializable {//делаем Serializable чтоб�
             inverseJoinColumns = @JoinColumn(name = "AUTHORS_NAME") // Имя колонки, представляющей автора в таблице связи
 	)
 	Set<Author> authors;
-	@ManyToOne // TODO
+	@ManyToOne 
+//	@JoinColumn(name = "PUBLISHER_PUBLISHER_NAME")
 	Publisher publisher;//таблица из одного столбца 
 	
 	
