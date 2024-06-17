@@ -53,8 +53,9 @@ public class PublisherRepositoryImpl implements PublisherRepository {
 
 	@Override
 	public Publisher save(Publisher publisher) {
-		em.persist(publisher); // save p
-//		em.merge(publisher);
+//		em.persist(publisher); // save p
+		em.merge(publisher);
+		em.flush();
 		return publisher; // return p
 	}
 
